@@ -1,0 +1,11 @@
+Package: infuser
+Type: Package
+Title: A very basic templating engine
+Version: 0.01
+Date: 2015-05-15
+Author: Bart Smeets
+Maintainer: Bart Smeets <bartsmeets86@gmail.com>
+Description: Replacing parameters in strings with specified values.
+License: MIT
+LazyData: TRUE
+Suggests: testthat
