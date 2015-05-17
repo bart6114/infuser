@@ -23,7 +23,7 @@ AND Month = {{month|3}};"
 
 Here the variable parameters are enclosed by ```{{``` and ```}}``` characters. See ```?infuse``` to use your own specification.
 
-From now, we suppose the character string ```my_sql```  is our template. To show the parameters requested by the template you can run the following.
+From now on, we suppose the character string ```my_sql```  is our template. To show the parameters requested by the template you can run the following.
 
 ```{r, results='hide'}
 library(infuser)
@@ -48,7 +48,7 @@ infuse(my_sql, year=2016)
 cat(infused_sql)
 ```
 
-Just like we're using a string here, a text file can be used. An example textfile can be found in the package as follows:
+Just like we're using a string here, a text file can be used. An example text file can be found in the package as follows:
 
 ```{r}
 example_file<-
@@ -74,4 +74,4 @@ cat(infused_template)
 
 ### Issues / questions
 
-Create a new issue at this GitHub page.
+Simply create a new issue at this GitHub repository.

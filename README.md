@@ -17,8 +17,9 @@ Let's have a look at an example string.
 Here the variable parameters are enclosed by `{{` and `}}` characters.
 See `?infuse` to use your own specification.
 
-From now, we suppose the character string `my_sql` is our template. To
-show the parameters requested by the template you can run the following.
+From now on, we suppose the character string `my_sql` is our template.
+To show the parameters requested by the template you can run the
+following.
 
     library(infuser)
     variables_requested(my_sql, verbose = TRUE)
@@ -51,7 +52,7 @@ parameter is not specified.
     ## AND Month = 3;
 
 Just like we're using a string here, a text file can be used. An example
-textfile can be found in the package as follows:
+text file can be found in the package as follows:
 
     example_file<-
       system.file("extdata", "sql1.sql", package="infuser")
@@ -84,4 +85,4 @@ And provide their values.
 
 ### Issues / questions
 
-Create a new issue at this GitHub page.
+Simply create a new issue at this GitHub repository.
