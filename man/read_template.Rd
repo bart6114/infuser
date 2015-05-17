@@ -6,6 +6,9 @@
 \usage{
 read_template(file_or_string)
 }
+\arguments{
+\item{file_or_string}{the file or character string to read}
+}
 \description{
 Reads the template from a file or string
 }

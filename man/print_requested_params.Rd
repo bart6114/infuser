@@ -6,6 +6,9 @@
 \usage{
 print_requested_params(params_requested)
 }
+\arguments{
+\item{params_requested}{the list of requested parameters}
+}
 \description{
 Prints requested parameters
 }

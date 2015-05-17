@@ -11,6 +11,10 @@ variables_requested(file_or_string, variable_identifier = c("{{", "}}"),
 \item{file_or_string}{the template file or a string containing the template}
 
 \item{variable_identifier}{the opening and closing character that denounce a variable in the template}
+
+\item{default_char}{the character use to specify a default after}
+
+\item{verbose}{verbosity level}
 }
 \description{
 Shows which variables are requested by the template

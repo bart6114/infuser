@@ -1,11 +1,13 @@
 Package: infuser
 Type: Package
-Title: A very basic templating engine
-Version: 0.01
+Title: A Very Basic Templating Engine
+Version: 0.1
 Date: 2015-05-15
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
-Description: Replacing parameters in strings with specified values.
-License: MIT
+Description: Replace parameters in strings and/or text files with specified values.
+License: MIT + file LICENSE
 LazyData: TRUE
 Suggests: testthat
+URL: https://github.com/bart6114/infuser/
+BugReports: https://github.com/bart6114/infuser/issues

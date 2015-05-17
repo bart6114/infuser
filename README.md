@@ -1,7 +1,13 @@
-`infuser` is a simple and very basic templating engine. It replaces
-parameters within templates with specified values. Templates can be
-either contained in a string or in a file. Let's have a look at an
-example.
+`infuser` is a simple and very basic templating engine for R. It
+replaces parameters within templates with specified values. Templates
+can be either contained in a string or in a file. Let's have a look at
+an example.
+
+### Installation
+
+    install.packages("infuser")
+
+### Usage
 
     my_sql<-"SELECT * FROM Customers
     WHERE Year = {{year}}
@@ -51,7 +57,7 @@ textfile can be found as follows:
 
     example_file
 
-    ## [1] "C:/R/R-3.1.3/library/infuser/extdata/sql1.sql"
+    ## [1] "/home/bart/R/x86_64-pc-linux-gnu-library/3.1/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 
@@ -74,3 +80,7 @@ And provide their values.
     ## AND YEAR = 2016
     ## AND STATS.ID = STATION.ID
     ## ORDER BY TEMP_F;
+
+### Issues / questions
+
+Create a new issue at this GitHub page.

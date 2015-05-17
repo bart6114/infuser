@@ -55,6 +55,8 @@ infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), def
 #'
 #' @param  file_or_string the template file or a string containing the template
 #' @param  variable_identifier the opening and closing character that denounce a variable in the template
+#' @param default_char the character use to specify a default after
+#' @param verbose verbosity level
 #' @export
 variables_requested <- function(file_or_string, variable_identifier = c("{{", "}}"), default_char = "|", verbose=FALSE){
   template <-

@@ -1,7 +1,12 @@
-# returns string w/o leading or trailing whitespace
+#' Returns string w/o leading or trailing whitespace
+#'
+#' @param x to string to strip
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 
+
 #' Reads the template from a file or string
+#'
+#' @param file_or_string the file or character string to read
 read_template<-function(file_or_string){
   # check if input is file
   # else asume it is a string
@@ -18,6 +23,8 @@ read_template<-function(file_or_string){
 }
 
 #' Prints requested parameters
+#'
+#' @param params_requested the list of requested parameters
 print_requested_params<-function(params_requested){
   message("Variables requested by template:")
   for(param in names(params_requested)){

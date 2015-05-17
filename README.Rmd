@@ -5,6 +5,14 @@ output: md_document
 
 ```infuser``` is a simple and very basic templating engine for R. It replaces parameters within templates with specified values. Templates can be either contained in a string or in a file. Let's have a look at an example.
 
+### Installation
+
+```{r, eval=FALSE}
+install.packages("infuser")
+```
+
+### Usage
+
 ```{r}
 my_sql<-"SELECT * FROM Customers
 WHERE Year = {{year}}
@@ -62,6 +70,9 @@ infused_template<-
 cat(infused_template)
 ```
 
+### Issues / questions
+
+Create a new issue at this GitHub page.
 
 
 
