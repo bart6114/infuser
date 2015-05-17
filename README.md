@@ -1,7 +1,6 @@
 `infuser` is a simple and very basic templating engine for R. It
 replaces parameters within templates with specified values. Templates
-can be either contained in a string or in a file. Let's have a look at
-an example.
+can be either contained in a string or in a file.
 
 ### Installation
 
@@ -9,12 +8,14 @@ an example.
 
 ### Usage
 
+Let's have a look at an example string.
+
     my_sql<-"SELECT * FROM Customers
     WHERE Year = {{year}}
     AND Month = {{month|3}};"
 
-Parameters are enclosed by `{{` and `}}` characters. See `?infuse` to
-use your own specification.
+Here the variable parameters are enclosed by `{{` and `}}` characters.
+See `?infuse` to use your own specification.
 
 From now, we suppose the character string `my_sql` is our template. To
 show the parameters requested by the template you can run the following.
@@ -50,7 +51,7 @@ parameter is not specified.
     ## AND Month = 3;
 
 Just like we're using a string here, a text file can be used. An example
-textfile can be found as follows:
+textfile can be found in the package as follows:
 
     example_file<-
       system.file("extdata", "sql1.sql", package="infuser")

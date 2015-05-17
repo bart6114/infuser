@@ -3,7 +3,7 @@ title: "infuser"
 output: md_document
 ---
 
-```infuser``` is a simple and very basic templating engine for R. It replaces parameters within templates with specified values. Templates can be either contained in a string or in a file. Let's have a look at an example.
+```infuser``` is a simple and very basic templating engine for R. It replaces parameters within templates with specified values. Templates can be either contained in a string or in a file.
 
 ### Installation
 
@@ -13,13 +13,15 @@ install.packages("infuser")
 
 ### Usage
 
+Let's have a look at an example string.
+
 ```{r}
 my_sql<-"SELECT * FROM Customers
 WHERE Year = {{year}}
 AND Month = {{month|3}};"
 ```
 
-Parameters are enclosed by ```{{``` and ```}}``` characters. See ```?infuse``` to use your own specification.
+Here the variable parameters are enclosed by ```{{``` and ```}}``` characters. See ```?infuse``` to use your own specification.
 
 From now, we suppose the character string ```my_sql```  is our template. To show the parameters requested by the template you can run the following.
 
@@ -46,7 +48,7 @@ infuse(my_sql, year=2016)
 cat(infused_sql)
 ```
 
-Just like we're using a string here, a text file can be used. An example textfile can be found as follows:
+Just like we're using a string here, a text file can be used. An example textfile can be found in the package as follows:
 
 ```{r}
 example_file<-
@@ -73,7 +75,3 @@ cat(infused_template)
 ### Issues / questions
 
 Create a new issue at this GitHub page.
-
-
-
-
