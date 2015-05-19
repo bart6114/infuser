@@ -1,3 +1,10 @@
+[![Travis-CI Build
+Status](https://travis-ci.org/zachmayer/infuser.svg?branch=master)](https://travis-ci.org/zachmayer/infuser)
+[![Coverage
+Status](https://img.shields.io/coveralls/zachmayer/infuser.svg)](https://coveralls.io/r/zachmayer/infuser?branch=master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/infuser)](http://cran.r-project.org/web/packages/infuser)
+[![Downloads](http://cranlogs.r-pkg.org/badges/infuser)](http://cran.rstudio.com/package=infuser)
+
 `infuser` is a simple and very basic templating engine for R. It
 replaces parameters within templates with specified values. Templates
 can be either contained in a string or in a file.
@@ -59,7 +66,7 @@ text file can be found in the package as follows:
 
     example_file
 
-    ## [1] "/home/bart/R/x86_64-pc-linux-gnu-library/3.1/infuser/extdata/sql1.sql"
+    ## [1] "/home/bart/R/x86_64-pc-linux-gnu-library/3.1/library/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 

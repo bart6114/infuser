@@ -3,6 +3,11 @@ title: "infuser"
 output: md_document
 ---
 
+[![Travis-CI Build Status](https://travis-ci.org/zachmayer/infuser.svg?branch=master)](https://travis-ci.org/zachmayer/infuser)
+[![Coverage Status](https://img.shields.io/coveralls/zachmayer/infuser.svg)](https://coveralls.io/r/zachmayer/infuser?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/infuser)](http://cran.r-project.org/web/packages/infuser)
+[![Downloads](http://cranlogs.r-pkg.org/badges/infuser)](http://cran.rstudio.com/package=infuser)
+
 ```infuser``` is a simple and very basic templating engine for R. It replaces parameters within templates with specified values. Templates can be either contained in a string or in a file.
 
 ### Installation
