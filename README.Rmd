@@ -89,7 +89,7 @@ What we don't want to happen is the following:
 
 ```{r}
 sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
-name <- "Robert'); DROP TABLE Students;--"
+name <- "'Robert'); DROP TABLE Students;--"
 
 cat(
   infuse(sql, name = name)
