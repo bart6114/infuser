@@ -1,5 +1,9 @@
 library(infuser)
 
+###########################################
+context("replacing simple string parameters")
+
+
 SQL_string <- "SELECT LAT_N, CITY, TEMP_F
 FROM STATS, STATION
 WHERE MONTH = {{month}}
@@ -28,25 +32,25 @@ AND YEAR = 2020
 AND STATS.ID = STATION.ID
 ORDER BY TEMP_F;"
 
-context("replacing simple string parameters")
 
 test_that("string replacements occurs as expected",{
-  expect_match(infuse(SQL_string, month=3, year=2020), SQL_string_wanted)
-  expect_match(infuse(SQL_string_with_whitespaces, month=3, year=2020), SQL_string_wanted)
+  expect_equal(infuse(SQL_string, month=3, year=2020), SQL_string_wanted)
+  expect_equal(infuse(SQL_string_with_whitespaces, month=3, year=2020), SQL_string_wanted)
 })
 
 context("replacing string parameters with defaults")
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_match(infuse(SQL_string_with_defaults, year=2020), SQL_string_wanted)
+  expect_equal(infuse(SQL_string_with_defaults, year=2020), SQL_string_wanted)
 })
 
 context("replacing parameters in template file")
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_match(infuse(system.file("extdata", "sql1.sql", package = "infuser"), year=2020), SQL_string_wanted)
+  expect_equal(infuse(system.file("extdata", "sql1.sql", package = "infuser"), year=2020), SQL_string_wanted)
 })
 
+###########################################
 context("replacing parameters with multiple occurences")
 
 SQL_string <- "SELECT LAT_N, CITY, TEMP_F
@@ -67,7 +71,22 @@ ORDER BY TEMP_F;"
 
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_match(infuse(SQL_string, year=2020), SQL_string_wanted)
+  expect_equal(infuse(SQL_string, year=2020), SQL_string_wanted)
+})
+
+###########################################
+context("custom tranform function")
+
+BOBBY_template <- "INSERT INTO Students (Name) VALUES ('{{name}}')"
+BOBBY_name <- "Robert'); DROP TABLE Students;--"
+remove_single_quotes <- function(v){
+  gsub("'", "", v)
+}
+
+BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')"
+
+test_that("the custom tranform function works",{
+  expect_equal(infuse(BOBBY_template, name = BOBBY_name, tranform_function = remove_single_quotes), BOBBY_wanted)
 })
 
 

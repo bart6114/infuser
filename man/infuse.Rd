@@ -5,7 +5,8 @@
 \title{Infuse a template with values}
 \usage{
 infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
-  default_char = "|", verbose = FALSE)
+  default_char = "|", tranform_function = function(value) return(value),
+  verbose = FALSE)
 }
 \arguments{
 \item{file_or_string}{the template file or a string containing the template}
@@ -15,6 +16,8 @@ infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
 \item{variable_identifier}{the opening and closing character that denounce a variable in the template}
 
 \item{default_char}{the character use to specify a default after}
+
+\item{tranform_function}{a function through which all specified values are passed, can be used to make inputs safe(r).}
 
 \item{verbose}{verbosity level}
 }
