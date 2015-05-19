@@ -9,11 +9,15 @@ Status](https://coveralls.io/repos/Bart6114/infuser/badge.svg)](https://coverall
 replaces parameters within templates with specified values. Templates
 can be either contained in a string or in a file.
 
-### Installation
+Installation
+------------
 
     install.packages("infuser")
 
-### Usage
+Usage
+-----
+
+### Working with character strings as templates
 
 Let's have a look at an example string.
 
@@ -58,6 +62,8 @@ parameter is not specified.
     ## WHERE Year = 2016
     ## AND Month = 3;
 
+### Working with text files as templates
+
 Just like we're using a string here, a text file can be used. An example
 text file can be found in the package as follows:
 
@@ -90,6 +96,32 @@ And provide their values.
     ## AND STATS.ID = STATION.ID
     ## ORDER BY TEMP_F;
 
-### Issues / questions
+### Processing / tranforming your inputs
+
+A `tranform_function` can be specified in the `infuse` command. This
+allows for pre-processing of the parameter values before inserting them
+in the template.
+
+What we don't want to happen is the following:
+
+    sql<-"INSERT INTO Students (Name) VALUES ('{{name}}')"
+    name <- "Robert'); DROP TABLE Students;--"
+
+    infuse(sql, name = name)
+
+    ## [1] "INSERT INTO Students (Name) VALUES ('Robert'); DROP TABLE Students;--')"
+
+Yikes! A way to solve this is to specify a custom transform function:
+
+    remove_single_quotes <- function(v){
+      gsub("'", "", v)
+    }
+
+    infuse(sql, name = name, tranform_function = remove_single_quotes)
+
+    ## [1] "INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')"
+
+Issues / questions
+------------------
 
 Simply create a new issue at this GitHub repository.
