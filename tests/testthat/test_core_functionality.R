@@ -86,7 +86,7 @@ remove_single_quotes <- function(v){
 BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')"
 
 test_that("the custom tranform function works",{
-  expect_equal(infuse(BOBBY_template, name = BOBBY_name, tranform_function = remove_single_quotes), BOBBY_wanted)
+  expect_equal(infuse(BOBBY_template, name = BOBBY_name, transform_function = remove_single_quotes), BOBBY_wanted)
 })
 
 

@@ -98,7 +98,7 @@ And provide their values.
 
 ### Processing / tranforming your inputs
 
-A `tranform_function` can be specified in the `infuse` command. This
+A `transform_function` can be specified in the `infuse` command. This
 allows for pre-processing of the parameter values before inserting them
 in the template.
 
@@ -116,7 +116,7 @@ What we don't want to happen is the following:
 Yikes! A way to solve this is to specify a custom transform function:
 
     cat(
-      infuse(sql, name = name, tranform_function = dplyr::build_sql)
+      infuse(sql, name = name, transform_function = dplyr::build_sql)
     )
 
     ## INSERT INTO Students (Name) VALUES (''Robert''); DROP TABLE Students;--'')

@@ -5,7 +5,7 @@
 \title{Infuse a template with values.}
 \usage{
 infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
-  default_char = "|", tranform_function = function(value) return(value),
+  default_char = "|", transform_function = function(value) return(value),
   verbose = FALSE)
 }
 \arguments{
@@ -17,7 +17,7 @@ infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
 
 \item{default_char}{the character use to specify a default after}
 
-\item{tranform_function}{a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.}
+\item{transform_function}{a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.}
 
 \item{verbose}{verbosity level}
 }

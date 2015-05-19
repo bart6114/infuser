@@ -6,11 +6,11 @@
 #' @param ... different keys with related values, used to fill in the template
 #' @param  variable_identifier the opening and closing character that denounce a variable in the template
 #' @param default_char the character use to specify a default after
-#' @param tranform_function a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.
+#' @param transform_function a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.
 #' @param verbose verbosity level
 #' @export
 infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), default_char = "|",
-                   tranform_function = function(value) return(value),
+                   transform_function = function(value) return(value),
                    verbose=FALSE){
   template <-
     read_template(file_or_string)
@@ -36,7 +36,7 @@ infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), def
         gsub(pattern,
              ## do this as a paste function e.g. if user supplied c(1,2,3)
              ## pass it through the transform function
-             tranform_function(
+             transform_function(
                 paste(params_supplied[[param]], collapse=",")
              ),
              template,
