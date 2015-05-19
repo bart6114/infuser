@@ -99,12 +99,8 @@ cat(
 Yikes! A way to solve this is to specify a custom transform function:
 
 ```{r}
-remove_single_quotes <- function(v){
-  gsub("'", "", v)
-}
-
 cat(
-  infuse(sql, name = name, tranform_function = remove_single_quotes)
+  infuse(sql, name = name, tranform_function = dplyr::build_sql)
 )
 ```
 

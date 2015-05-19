@@ -115,15 +115,11 @@ What we don't want to happen is the following:
 
 Yikes! A way to solve this is to specify a custom transform function:
 
-    remove_single_quotes <- function(v){
-      gsub("'", "", v)
-    }
-
     cat(
-      infuse(sql, name = name, tranform_function = remove_single_quotes)
+      infuse(sql, name = name, tranform_function = dplyr::build_sql)
     )
 
-    ## INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')
+    ## INSERT INTO Students (Name) VALUES (''Robert''); DROP TABLE Students;--'')
 
 Issues / questions
 ------------------
