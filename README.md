@@ -104,14 +104,14 @@ in the template.
 
 What we don't want to happen is the following:
 
-    sql<-"INSERT INTO Students (Name) VALUES ('{{name}}')"
+    sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
     name <- "Robert'); DROP TABLE Students;--"
 
     cat(
       infuse(sql, name = name)
     )
 
-    ## INSERT INTO Students (Name) VALUES ('Robert'); DROP TABLE Students;--')
+    ## INSERT INTO Students (Name) VALUES (Robert'); DROP TABLE Students;--)
 
 Yikes! A way to solve this is to specify a custom transform function:
 
@@ -119,7 +119,7 @@ Yikes! A way to solve this is to specify a custom transform function:
       infuse(sql, name = name, transform_function = dplyr::build_sql)
     )
 
-    ## INSERT INTO Students (Name) VALUES (''Robert''); DROP TABLE Students;--'')
+    ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
 Issues / questions
 ------------------
