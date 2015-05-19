@@ -107,9 +107,11 @@ What we don't want to happen is the following:
     sql<-"INSERT INTO Students (Name) VALUES ('{{name}}')"
     name <- "Robert'); DROP TABLE Students;--"
 
-    infuse(sql, name = name)
+    cat(
+      infuse(sql, name = name)
+    )
 
-    ## [1] "INSERT INTO Students (Name) VALUES ('Robert'); DROP TABLE Students;--')"
+    ## INSERT INTO Students (Name) VALUES ('Robert'); DROP TABLE Students;--')
 
 Yikes! A way to solve this is to specify a custom transform function:
 
@@ -117,9 +119,11 @@ Yikes! A way to solve this is to specify a custom transform function:
       gsub("'", "", v)
     }
 
-    infuse(sql, name = name, tranform_function = remove_single_quotes)
+    cat(
+      infuse(sql, name = name, tranform_function = remove_single_quotes)
+    )
 
-    ## [1] "INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')"
+    ## INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')
 
 Issues / questions
 ------------------
