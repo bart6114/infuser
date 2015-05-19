@@ -3,8 +3,8 @@ title: "infuser"
 output: md_document
 ---
 
-[![Travis-CI Build Status](https://travis-ci.org/zachmayer/infuser.svg?branch=master)](https://travis-ci.org/zachmayer/infuser)
-[![Coverage Status](https://img.shields.io/coveralls/zachmayer/infuser.svg)](https://coveralls.io/r/zachmayer/infuser?branch=master)
+[![Travis Build Status](https://travis-ci.org/Bart6114/infuser.svg)](https://travis-ci.org/Bart6114/infuser)
+[![Coverage Status](https://coveralls.io/repos/Bart6114/infuser/badge.svg)](https://coveralls.io/r/Bart6114/infuser)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/infuser)](http://cran.r-project.org/web/packages/infuser)
 [![Downloads](http://cranlogs.r-pkg.org/badges/infuser)](http://cran.rstudio.com/package=infuser)
 
