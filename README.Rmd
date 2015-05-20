@@ -16,6 +16,12 @@ output: md_document
 install.packages("infuser")
 ```
 
+If you want to use the most up-to-date version, install using ```devtools::install_github```.
+
+```{r, eval=FALSE}
+devtools::install_github("Bart6114/infuser")
+```
+
 ## Usage
 
 ### Working with character strings as templates

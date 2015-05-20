@@ -14,6 +14,11 @@ Installation
 
     install.packages("infuser")
 
+If you want to use the most up-to-date version, install using
+`devtools::install_github`.
+
+    devtools::install_github("Bart6114/infuser")
+
 Usage
 -----
 
