@@ -77,16 +77,13 @@ test_that("string replacements occurs as expected with defaults in place",{
 ###########################################
 context("custom tranform function")
 
-BOBBY_template <- "INSERT INTO Students (Name) VALUES ('{{name}}')"
-BOBBY_name <- "Robert'); DROP TABLE Students;--"
-remove_single_quotes <- function(v){
-  gsub("'", "", v)
-}
+sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
+name <- "'Robert'); DROP TABLE Students;--"
 
-BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert); DROP TABLE Students;--')"
+BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('''Robert''); DROP TABLE Students;--')"
 
 test_that("the custom tranform function works",{
-  expect_equal(infuse(BOBBY_template, name = BOBBY_name, tranform_function = remove_single_quotes), BOBBY_wanted)
+  expect_equal(infuse(sql, name = name, transform_function = dplyr::build_sql), BOBBY_wanted)
 })
 
 
