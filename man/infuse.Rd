@@ -4,12 +4,14 @@
 \alias{infuse}
 \title{Infuse a template with values.}
 \usage{
-infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
-  default_char = "|", transform_function = function(value) return(value),
-  verbose = FALSE)
+infuse(file_or_string, key_value_list, ..., variable_identifier = c("{{",
+  "}}"), default_char = "|", transform_function = function(value)
+  return(value), verbose = FALSE)
 }
 \arguments{
 \item{file_or_string}{the template file or a string containing the template}
+
+\item{key_value_list}{a named list with keys corresponding to the parameters requested by the template, if specified, will be used instead of ...}
 
 \item{...}{different keys with related values, used to fill in the template}
 

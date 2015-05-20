@@ -41,7 +41,20 @@ To fill in the template simply provide the requested parameters.
 
 ```{r}
 infused_sql<-
-infuse(my_sql, year=2016, month=8)
+  infuse(my_sql, year=2016, month=8)
+
+cat(infused_sql)
+```
+
+You can also provide a named list with the requested parameters.
+
+```{r}
+my_list<- 
+  list(year=2016,
+       month=8)
+
+infused_sql<-
+  infuse(my_sql, my_list)
 
 cat(infused_sql)
 ```
@@ -50,7 +63,7 @@ If a default value is available in the template, it will be used if the paramete
 
 ```{r}
 infused_sql<-
-infuse(my_sql, year=2016)
+  infuse(my_sql, year=2016)
 
 cat(infused_sql)
 ```
@@ -125,3 +138,13 @@ cat(
 ## Issues / questions
 
 Simply create a new issue at this GitHub repository.
+
+
+## Changes
+
+### v0.1.2
+- added optional ```key_value_list``` argument to ```infuse``` command
+
+### v0.1.1
+- added optional ```transform_function``` argument to ```infuse``` command
+

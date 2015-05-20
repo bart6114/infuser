@@ -38,6 +38,12 @@ test_that("string replacements occurs as expected",{
   expect_equal(infuse(SQL_string_with_whitespaces, month=3, year=2020), SQL_string_wanted)
 })
 
+test_that("string replacements occurs as expected when providing a list instead of arguments",{
+  expect_equal(infuse(SQL_string, list(month=3, year=2020)), SQL_string_wanted)
+  expect_equal(infuse(SQL_string_with_whitespaces, list(month=3, year=2020)), SQL_string_wanted)
+})
+
+
 context("replacing string parameters with defaults")
 
 test_that("string replacements occurs as expected with defaults in place",{

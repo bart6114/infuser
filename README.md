@@ -42,7 +42,22 @@ following.
 To fill in the template simply provide the requested parameters.
 
     infused_sql<-
-    infuse(my_sql, year=2016, month=8)
+      infuse(my_sql, year=2016, month=8)
+
+    cat(infused_sql)
+
+    ## SELECT * FROM Customers
+    ## WHERE Year = 2016
+    ## AND Month = 8;
+
+You can also provide a named list with the requested parameters.
+
+    my_list<- 
+      list(year=2016,
+           month=8)
+
+    infused_sql<-
+      infuse(my_sql, my_list)
 
     cat(infused_sql)
 
@@ -54,7 +69,7 @@ If a default value is available in the template, it will be used if the
 parameter is not specified.
 
     infused_sql<-
-    infuse(my_sql, year=2016)
+      infuse(my_sql, year=2016)
 
     cat(infused_sql)
 
@@ -96,7 +111,7 @@ And provide their values.
     ## AND STATS.ID = STATION.ID
     ## ORDER BY TEMP_F;
 
-### Processing / tranforming your inputs
+### Processing / transforming your inputs
 
 A `transform_function` can be specified in the `infuse` command. This
 allows for pre-processing of the parameter values before inserting them
@@ -144,3 +159,14 @@ Issues / questions
 ------------------
 
 Simply create a new issue at this GitHub repository.
+
+Changes
+-------
+
+### v0.1.2
+
+-   added optional `key_value_list` argument to `infuse` command
+
+### v0.1.1
+
+-   added optional `transform_function` argument to `infuse` command

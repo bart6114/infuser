@@ -3,15 +3,15 @@
 #' To help prevent \href{https://xkcd.com/327/}{SQL injection attacks} (or other injection attacks), use a transformation function to escape special characters. \code{\link[dplyr]{build_sql}} is a great default escaping function for SQL templating.  For templating in other languages you will need to build your own escaping function.
 #'
 #' @param  file_or_string the template file or a string containing the template
+#' @param key_value_list a named list with keys corresponding to the parameters requested by the template, if specified, will be used instead of ...
 #' @param ... different keys with related values, used to fill in the template
 #' @param  variable_identifier the opening and closing character that denounce a variable in the template
 #' @param default_char the character use to specify a default after
 #' @param transform_function a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.
 #' @param verbose verbosity level
 #' @export
-infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), default_char = "|",
-                   transform_function = function(value) return(value),
-                   verbose=FALSE){
+infuse <- function(file_or_string, key_value_list, ..., variable_identifier = c("{{", "}}"), default_char = "|", transform_function = function(value) return(value), verbose=FALSE){
+
   template <-
     read_template(file_or_string)
 
@@ -19,7 +19,14 @@ infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), def
     variables_requested(template, default_char = default_char, verbose=verbose)
 
 
-  params_supplied = list(...)
+  params_supplied <- if(!missing(key_value_list) && is.list(key_value_list)) list(...)
+
+  if(!missing(key_value_list)){
+    if(!is.list(key_value_list)) stop("Specified key_value_list is not a list-like object.")
+    params_supplied <- key_value_list
+  } else {
+    params_supplied <- list(...)
+  }
 
 
   for(param in names(params_requested)){
