@@ -75,7 +75,7 @@ test_that("string replacements occurs as expected with defaults in place",{
 })
 
 ###########################################
-context("custom tranform function")
+context("custom transform function")
 
 sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
 name <- "Robert'); DROP TABLE Students;--"
@@ -91,6 +91,6 @@ my_transform_function<-function(v){
 
 BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')"
 
-test_that("the custom tranform function works",{
+test_that("the custom transform function works",{
   expect_equal(infuse(sql, name = name, transform_function = my_transform_function), BOBBY_wanted)
 })
