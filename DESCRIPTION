@@ -1,7 +1,7 @@
 Package: infuser
 Type: Package
 Title: A Very Basic Templating Engine
-Version: 0.1
+Version: 0.1.1
 Date: 2015-05-15
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
