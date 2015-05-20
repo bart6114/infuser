@@ -105,21 +105,40 @@ in the template.
 What we don't want to happen is the following:
 
     sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
-    name <- "'Robert'); DROP TABLE Students;--"
+    name <- "Robert'); DROP TABLE Students;--"
 
     cat(
       infuse(sql, name = name)
     )
 
-    ## INSERT INTO Students (Name) VALUES ('Robert'); DROP TABLE Students;--)
+    ## INSERT INTO Students (Name) VALUES (Robert'); DROP TABLE Students;--)
 
-Yikes! A way to solve this is to specify a custom transform function:
+Yikes! A way to solve this is to specify your own custom transform
+function.
+
+    my_transform_function<-function(v){
+      # replace single quotes with double quotes
+      v<-gsub("'", "''", v)
+      # encloses the string in single quotes
+      v<-paste0("'",v,"'")
+      
+      return(v)
+    }
+
+    cat(
+      infuse(sql, name = name, transform_function = my_transform_function)
+    )
+
+    ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
+
+Of course you can also use functions from other packages. Specifically
+for SQL I advise you to take a look at the `dplyr::build_sql` function.
 
     cat(
       infuse(sql, name = name, transform_function = dplyr::build_sql)
     )
 
-    ## INSERT INTO Students (Name) VALUES ('''Robert''); DROP TABLE Students;--')
+    ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
 Issues / questions
 ------------------
