@@ -181,6 +181,10 @@ Simply create a new issue at this GitHub repository.
 Changes
 -------
 
+### v0.1.3
+
+-   added optional `collapse_char` argument to `infuse` command
+
 ### v0.1.2
 
 -   added optional `key_value_list` argument to `infuse` command
