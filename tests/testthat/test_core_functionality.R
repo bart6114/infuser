@@ -81,6 +81,24 @@ test_that("string replacements occurs as expected with defaults in place",{
 })
 
 ###########################################
+context("providing a vector and collapsing it with a specified character")
+
+template <- "hello {{var1}}"
+to_infuse <- c(1,2,3)
+should_be <- "hello 1,2,3"
+should_be2 <- "hello 1|2|3"
+
+test_that("infusing of vector with default ',' works",{
+  expect_equal(infuse(template, var1 = to_infuse), should_be)
+})
+
+
+test_that("infusing of vector with specified char works",{
+  expect_equal(infuse(template, var1 = to_infuse, collapse_char = "|"), should_be2)
+})
+
+
+###########################################
 context("custom transform function")
 
 sql<-"INSERT INTO Students (Name) VALUES ({{name}})"

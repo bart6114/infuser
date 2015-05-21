@@ -100,6 +100,19 @@ infused_template<-
 cat(infused_template)
 ```
 
+### Infusing vectors
+
+It is quite easy to insert a vector.
+
+```{r}
+years <- c(2013,2014,2015)
+sql_string <- "SELECT * FROM T1 WHERE Year IN ({{years}})"
+
+cat(
+  infuse(sql_string, years=years)
+)
+```
+
 ### Processing / transforming your inputs
 
 A ```transform_function``` can be specified in the ```infuse``` command. This allows for pre-processing of the parameter values before inserting them in the template.
@@ -147,6 +160,9 @@ Simply create a new issue at this GitHub repository.
 
 
 ## Changes
+
+### v0.1.3
+- added optional ```collapse_char``` argument to ```infuse``` command
 
 ### v0.1.2
 - added optional ```key_value_list``` argument to ```infuse``` command

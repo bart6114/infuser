@@ -116,6 +116,19 @@ And provide their values.
     ## AND STATS.ID = STATION.ID
     ## ORDER BY TEMP_F;
 
+### Infusing vectors
+
+It is quite easy to insert a vector.
+
+    years <- c(2013,2014,2015)
+    sql_string <- "SELECT * FROM T1 WHERE Year IN ({{years}})"
+
+    cat(
+      infuse(sql_string, years=years)
+    )
+
+    ## SELECT * FROM T1 WHERE Year IN (2013,2014,2015)
+
 ### Processing / transforming your inputs
 
 A `transform_function` can be specified in the `infuse` command. This
