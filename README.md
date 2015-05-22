@@ -46,10 +46,7 @@ following.
 
 To fill in the template simply provide the requested parameters.
 
-    infused_sql<-
       infuse(my_sql, year=2016, month=8)
-
-    cat(infused_sql)
 
     ## SELECT * FROM Customers
     ## WHERE Year = 2016
@@ -61,10 +58,7 @@ You can also provide a named list with the requested parameters.
       list(year=2016,
            month=8)
 
-    infused_sql<-
-      infuse(my_sql, my_list)
-
-    cat(infused_sql)
+    infuse(my_sql, my_list)
 
     ## SELECT * FROM Customers
     ## WHERE Year = 2016
@@ -73,10 +67,7 @@ You can also provide a named list with the requested parameters.
 If a default value is available in the template, it will be used if the
 parameter is not specified.
 
-    infused_sql<-
-      infuse(my_sql, year=2016)
-
-    cat(infused_sql)
+    infuse(my_sql, year=2016)
 
     ## SELECT * FROM Customers
     ## WHERE Year = 2016
@@ -104,10 +95,7 @@ Again, we can check which parameters are requested by the template.
 
 And provide their values.
 
-    infused_template<-
-      infuse(example_file, year = 2016, month = 12)
-
-    cat(infused_template)
+    infuse(example_file, year = 2016, month = 12)
 
     ## SELECT LAT_N, CITY, TEMP_F
     ## FROM STATS, STATION
@@ -123,17 +111,13 @@ It is quite easy to insert a vector.
     years <- c(2013,2014,2015)
     sql_string <- "SELECT * FROM T1 WHERE Year IN ({{years}})"
 
-    cat(
-      infuse(sql_string, years=years)
-    )
+    infuse(sql_string, years=years)
 
     ## SELECT * FROM T1 WHERE Year IN (2013,2014,2015)
 
 You can also specify the collapse character.
 
-    cat(
-      infuse(sql_string, years=years, collapse_char = ";")
-    )
+    infuse(sql_string, years=years, collapse_char = ";")
 
     ## SELECT * FROM T1 WHERE Year IN (2013;2014;2015)
 
@@ -148,9 +132,7 @@ What we don't want to happen is the following:
     sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
     name <- "Robert'); DROP TABLE Students;--"
 
-    cat(
-      infuse(sql, name = name)
-    )
+    infuse(sql, name = name)
 
     ## INSERT INTO Students (Name) VALUES (Robert'); DROP TABLE Students;--)
 
@@ -166,18 +148,14 @@ function.
       return(v)
     }
 
-    cat(
-      infuse(sql, name = name, transform_function = my_transform_function)
-    )
+    infuse(sql, name = name, transform_function = my_transform_function)
 
     ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
 Of course you can also use functions from other packages. Specifically
 for SQL I advise you to take a look at the `dplyr::build_sql` function.
 
-    cat(
-      infuse(sql, name = name, transform_function = dplyr::build_sql)
-    )
+    infuse(sql, name = name, transform_function = dplyr::build_sql)
 
     ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
@@ -188,6 +166,10 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.1.4
+
+-   updated print function for output of infuse (uses `cat` for now on)
 
 ### v0.1.3
 

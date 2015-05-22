@@ -66,6 +66,8 @@ infuse <- function(file_or_string, key_value_list, ..., variable_identifier = c(
 
   }
 
+  ## add 'infuse' class to the character string, done to control show method
+  class(template) <- append(class(template), "infuse")
   template
 
 }

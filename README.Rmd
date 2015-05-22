@@ -46,10 +46,7 @@ variables_requested(my_sql, verbose = TRUE)
 To fill in the template simply provide the requested parameters.
 
 ```{r}
-infused_sql<-
   infuse(my_sql, year=2016, month=8)
-
-cat(infused_sql)
 ```
 
 You can also provide a named list with the requested parameters.
@@ -59,19 +56,13 @@ my_list<-
   list(year=2016,
        month=8)
 
-infused_sql<-
-  infuse(my_sql, my_list)
-
-cat(infused_sql)
+infuse(my_sql, my_list)
 ```
 
 If a default value is available in the template, it will be used if the parameter is not specified.
 
 ```{r}
-infused_sql<-
-  infuse(my_sql, year=2016)
-
-cat(infused_sql)
+infuse(my_sql, year=2016)
 ```
 
 ### Working with text files as templates
@@ -94,10 +85,7 @@ variables_requested(example_file, verbose = TRUE)
 And provide their values.
 
 ```{r}
-infused_template<-
-  infuse(example_file, year = 2016, month = 12)
-
-cat(infused_template)
+infuse(example_file, year = 2016, month = 12)
 ```
 
 ### Infusing vectors
@@ -108,17 +96,13 @@ It is quite easy to insert a vector.
 years <- c(2013,2014,2015)
 sql_string <- "SELECT * FROM T1 WHERE Year IN ({{years}})"
 
-cat(
-  infuse(sql_string, years=years)
-)
+infuse(sql_string, years=years)
 ```
 
 You can also specify the collapse character.
 
 ```{r}
-cat(
-  infuse(sql_string, years=years, collapse_char = ";")
-)
+infuse(sql_string, years=years, collapse_char = ";")
 ```
 
 
@@ -133,9 +117,7 @@ What we don't want to happen is the following:
 sql<-"INSERT INTO Students (Name) VALUES ({{name}})"
 name <- "Robert'); DROP TABLE Students;--"
 
-cat(
-  infuse(sql, name = name)
-)
+infuse(sql, name = name)
 ```
 
 Yikes! A way to solve this is to specify your own custom transform function.
@@ -150,18 +132,14 @@ my_transform_function<-function(v){
   return(v)
 }
 
-cat(
-  infuse(sql, name = name, transform_function = my_transform_function)
-)
+infuse(sql, name = name, transform_function = my_transform_function)
 ```
 
 Of course you can also use functions from other packages. Specifically for SQL I advise you to take a look at the ```dplyr::build_sql``` function.
 
 
 ```{r}
-cat(
-  infuse(sql, name = name, transform_function = dplyr::build_sql)
-)
+infuse(sql, name = name, transform_function = dplyr::build_sql)
 ```
 
 ## Issues / questions
@@ -170,6 +148,9 @@ Simply create a new issue at this GitHub repository.
 
 
 ## Changes
+
+### v.0.1.4
+- updated print function for output of infuse (uses ```cat``` for now on)
 
 ### v0.1.3
 - added optional ```collapse_char``` argument to ```infuse``` command
