@@ -129,6 +129,14 @@ It is quite easy to insert a vector.
 
     ## SELECT * FROM T1 WHERE Year IN (2013,2014,2015)
 
+You can also specify the collapse character.
+
+    cat(
+      infuse(sql_string, years=years, collapse_char = ";")
+    )
+
+    ## SELECT * FROM T1 WHERE Year IN (2013;2014;2015)
+
 ### Processing / transforming your inputs
 
 A `transform_function` can be specified in the `infuse` command. This

@@ -113,6 +113,16 @@ cat(
 )
 ```
 
+You can also specify the collapse character.
+
+```{r}
+cat(
+  infuse(sql_string, years=years, collapse_char = ";")
+)
+```
+
+
+
 ### Processing / transforming your inputs
 
 A ```transform_function``` can be specified in the ```infuse``` command. This allows for pre-processing of the parameter values before inserting them in the template.
