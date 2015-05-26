@@ -38,15 +38,10 @@ print_requested_params<-function(params_requested){
   }
 }
 
-ty<-"ddadas"
-
-class(ty)
-class(ty)<-
-  append(class(ty), "infuse")
-
 #' prints/shows the result of the \code{infuse} function using the \code{cat} function
 #'
 #' @param x output of the \code{infuse} function
+#' @param ... further arguments passed to or from other methods.
 #' @export
 print.infuse<-function(x, ...){
   cat(x)

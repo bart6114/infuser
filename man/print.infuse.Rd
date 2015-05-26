@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{output of the \code{infuse} function}
+
+\item{...}{further arguments passed to or from other methods.}
 }
 \description{
 prints/shows the result of the \code{infuse} function using the \code{cat} function
