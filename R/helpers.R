@@ -46,8 +46,8 @@ class(ty)<-
 
 #' prints/shows the result of the \code{infuse} function using the \code{cat} function
 #'
-#' x output of the \code{infuse} function
+#' @param x output of the \code{infuse} function
 #' @export
-print.infuse<-function(x){
+print.infuse<-function(x, ...){
   cat(x)
 }

@@ -4,9 +4,12 @@
 \alias{print.infuse}
 \title{prints/shows the result of the \code{infuse} function using the \code{cat} function}
 \usage{
-\method{print}{infuse}(x)
+\method{print}{infuse}(x, ...)
+}
+\arguments{
+\item{x}{output of the \code{infuse} function}
 }
 \description{
-x output of the \code{infuse} function
+prints/shows the result of the \code{infuse} function using the \code{cat} function
 }
 
