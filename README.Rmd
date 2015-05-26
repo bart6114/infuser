@@ -149,6 +149,9 @@ Simply create a new issue at this GitHub repository.
 
 ## Changes
 
+### v.0.2.0
+- consolidating adjustments and releasing version on CRAN
+
 ### v.0.1.4
 - updated print function for output of infuse (uses ```cat``` for now on)
 
