@@ -83,7 +83,7 @@ text file can be found in the package as follows:
 
     example_file
 
-    ## [1] "C:/R/R-3.1.3/library/infuser/extdata/sql1.sql"
+    ## [1] "/home/bart/R/x86_64-pc-linux-gnu-library/3.2/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 
@@ -166,6 +166,10 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.2.0
+
+-   consolidating adjustments and releasing version on CRAN
 
 ### v.0.1.4
 
