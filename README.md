@@ -167,6 +167,10 @@ Simply create a new issue at this GitHub repository.
 Changes
 -------
 
+### v.0.2.1
+
+-   fixed: incorrect replacement of parameters with same prefix
+
 ### v.0.2.0
 
 -   consolidating adjustments and releasing version on CRAN

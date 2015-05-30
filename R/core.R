@@ -34,9 +34,17 @@ infuse <- function(file_or_string, key_value_list, ..., variable_identifier = c(
   for(param in names(params_requested)){
 
     pattern <- paste0(variable_identifier[1],
-                      "\\s*",
+                      "\\s*?",
                       param,
-                      ".*?" ,
+                      "\\s*?" ,
+                      variable_identifier[2],
+                      "|",  # or match with default in place
+                      variable_identifier[1],
+                      "\\s*?",
+                      param,
+                      "\\s*?\\",
+                      default_char,
+                      ".*?",
                       variable_identifier[2])
 
     if(param %in% names(params_supplied)){

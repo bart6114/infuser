@@ -50,6 +50,10 @@ test_that("string replacements occurs as expected with defaults in place",{
   expect_equivalent(infuse(SQL_string_with_defaults, year=2020), SQL_string_wanted)
 })
 
+test_that("parameters with same prefix are replaced as expected",{
+  expect_equivalent(infuse("test-{{output}}-{{outputA}}", output = "do", outputA = "a"), "test-do-a")
+})
+
 context("replacing parameters in template file")
 
 test_that("string replacements occurs as expected with defaults in place",{
