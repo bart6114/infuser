@@ -90,7 +90,7 @@ infuse(example_file, year = 2016, month = 12)
 
 ### Infusing vectors
 
-It is quite easy to insert a vector.
+It is quite easy to infuse a vector.
 
 ```{r}
 years <- c(2013,2014,2015)
