@@ -132,3 +132,10 @@ test_that("variable identifiers are correctly used",{
   expect_equivalent(
     infuse("${test}", variable_identifier = c("\\${", "}"), test = "123"), "123")
 })
+
+
+test_that("variable identifiers are correctly used when set as an option",{
+  options(variable_identifier = c("\\${", "}"))
+  expect_equivalent(
+    infuse("${test}", test = "123"), "123")
+})

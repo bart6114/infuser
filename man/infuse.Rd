@@ -4,7 +4,8 @@
 \alias{infuse}
 \title{Infuse a template with values.}
 \usage{
-infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
+infuse(file_or_string, ...,
+  variable_identifier = getOption("variable_identifier"),
   default_char = "|", collapse_char = ",",
   transform_function = function(value) return(value),
   verbose = getOption("verbose"))
@@ -14,7 +15,7 @@ infuse(file_or_string, ..., variable_identifier = c("{{", "}}"),
 
 \item{...}{different keys with related values, used to fill in the template (if first passed item is a list/environment the contents of this will be processed instead)}
 
-\item{variable_identifier}{the opening and closing character that denounce a variable in the template}
+\item{variable_identifier}{the opening and closing character that denounce a variable in the template, defaults to \code{c("{{", "}}")} and can be set persistently through \code{options(variable_identifier=c("{{", "}}"))}}
 
 \item{default_char}{the character use to specify a default after}
 

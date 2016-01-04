@@ -1,3 +1,6 @@
+options(variable_identifier=c("{{", "}}"))
+
+
 #' Infuse a template with values.
 #'
 #' For more info and usage examples see the README on the \href{https://github.com/Bart6114/infuser}{\code{infuser} github page}.
@@ -5,13 +8,13 @@
 #'
 #' @param  file_or_string the template file or a string containing the template
 #' @param ... different keys with related values, used to fill in the template (if first passed item is a list/environment the contents of this will be processed instead)
-#' @param  variable_identifier the opening and closing character that denounce a variable in the template
+#' @param  variable_identifier the opening and closing character that denounce a variable in the template, defaults to \code{c("{{", "}}")} and can be set persistently using e.g. \code{options(variable_identifier=c("{{", "}}"))}
 #' @param default_char the character use to specify a default after
 #' @param collapse_char the character used to collapse a supplied vector
 #' @param transform_function a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.
 #' @param verbose verbosity level
 #' @export
-infuse <- function(file_or_string, ..., variable_identifier = c("{{", "}}"), default_char = "|", collapse_char = ",", transform_function = function(value) return(value), verbose=getOption("verbose")){
+infuse <- function(file_or_string, ..., variable_identifier = getOption("variable_identifier"), default_char = "|", collapse_char = ",", transform_function = function(value) return(value), verbose=getOption("verbose")){
 
   template <-
     read_template(file_or_string)
