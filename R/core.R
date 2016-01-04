@@ -1,4 +1,6 @@
-options(variable_identifier=c("{{", "}}"))
+.onLoad <- function(libname, pkgname) {
+  options(variable_identifier=c("{{", "}}"))
+}
 
 
 #' Infuse a template with values.
