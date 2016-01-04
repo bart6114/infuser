@@ -33,7 +33,7 @@ infuse <- function(file_or_string, ..., variable_identifier = getOption("variabl
   ## if a list or environment is passed as the first argument, only process this
   if("key_value_list" %in% names(params_supplied)) warning("specification of key_value_list no longer required; simply pass the list/environment as the first parameter")
 
-  if(is(params_supplied[[1]], "list") || is(params_supplied[[1]], "environment")){
+  if(inherits(params_supplied[[1]], "list") || inherits(params_supplied[[1]], "environment")){
     params_supplied <- params_supplied[[1]]
   }
 
