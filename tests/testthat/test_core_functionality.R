@@ -39,6 +39,7 @@ test_that("string replacements occurs as expected",{
 })
 
 test_that("string replacements occurs as expected when providing a list instead of arguments",{
+  expect_warning(infuse(SQL_string, key_value_list=list(month=3, year=2020))) #deprecated
   expect_equivalent(infuse(SQL_string, list(month=3, year=2020)), SQL_string_wanted)
   expect_equivalent(infuse(SQL_string_with_whitespaces, list(month=3, year=2020)), SQL_string_wanted)
 })
