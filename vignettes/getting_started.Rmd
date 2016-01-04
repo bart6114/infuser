@@ -1,12 +1,15 @@
 ---
-title: "infuser"
-output: md_document
+title: "Getting started with infuser"
+author: "Bart Smeets"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-[![Travis Build Status](https://travis-ci.org/Bart6114/infuser.svg)](https://travis-ci.org/Bart6114/infuser)
-[![Coverage Status](https://coveralls.io/repos/Bart6114/infuser/badge.svg)](https://coveralls.io/r/Bart6114/infuser)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/infuser)](http://cran.r-project.org/web/packages/infuser)
-[![Downloads](http://cranlogs.r-pkg.org/badges/infuser)](http://cran.rstudio.com/package=infuser)
+> Note: this is a copy of the README file.
 
 ```infuser``` is a simple and very basic templating engine for R. It replaces parameters within templates with specified values. Templates can be either contained in a string or in a file.
 

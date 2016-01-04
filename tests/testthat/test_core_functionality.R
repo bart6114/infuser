@@ -122,3 +122,12 @@ BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Stud
 test_that("the custom transform function works",{
   expect_equivalent(infuse(sql, name = name, transform_function = my_transform_function), BOBBY_wanted)
 })
+
+
+###############################################
+context("variable identifiers")
+
+test_that("variable identifiers are correctly used",{
+  expect_equivalent(
+    infuse("${test}", variable_identifier = c("\\${", "}"), test = "123"), "123")
+})

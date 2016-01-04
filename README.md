@@ -83,7 +83,7 @@ text file can be found in the package as follows:
 
     example_file
 
-    ## [1] "/home/bart/R/x86_64-pc-linux-gnu-library/3.2/infuser/extdata/sql1.sql"
+    ## [1] "C:/R/libs/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 
@@ -106,7 +106,7 @@ And provide their values.
 
 ### Infusing vectors
 
-It is quite easy to insert a vector.
+It is quite easy to infuse a vector.
 
     years <- c(2013,2014,2015)
     sql_string <- "SELECT * FROM T1 WHERE Year IN ({{years}})"
@@ -166,6 +166,11 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.2.2
+
+-   dropped `key_value_list` parameter (will be
+    interpreted automatically)
 
 ### v.0.2.1
 
