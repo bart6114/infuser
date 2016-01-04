@@ -30,6 +30,7 @@ devtools::install_github("Bart6114/infuser")
 A simple Hello World example that makes use of the `magrittr` piping workflow.
 
 ```{r}
+library(infuser)
 library(magrittr)
 
 "Hello {{var1}}!" %>%
@@ -155,33 +156,3 @@ Of course you can also use functions from other packages. Specifically for SQL I
 ```{r}
 infuse(sql, name = name, transform_function = dplyr::build_sql)
 ```
-
-## Issues / questions
-
-Simply create a new issue at this GitHub repository.
-
-
-## Changes
-
-### v.0.2.2
-- dropped `key_value_list` parameter (will be interpreted automatically)
-- fixed passing of the `variable_identifier`
-
-### v.0.2.1
-- fixed: incorrect replacement of parameters with same prefix
-
-### v.0.2.0
-- consolidating adjustments and releasing version on CRAN
-
-### v.0.1.4
-- updated print function for output of infuse (uses ```cat``` for now on)
-
-### v0.1.3
-- added optional ```collapse_char``` argument to ```infuse``` command
-
-### v0.1.2
-- added optional ```key_value_list``` argument to ```infuse``` command
-
-### v0.1.1
-- added optional ```transform_function``` argument to ```infuse``` command
-

@@ -28,6 +28,7 @@ A simple Hello World example that makes use of the `magrittr` piping workflow.
 
 ```{r}
 library(magrittr)
+library(infuser)
 
 "Hello {{var1}}!" %>%
   infuse(var1="world")

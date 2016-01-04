@@ -19,6 +19,20 @@ If you want to use the most up-to-date version, install using
 
     devtools::install_github("Bart6114/infuser")
 
+Hello World
+-----------
+
+A simple Hello World example that makes use of the `magrittr` piping
+workflow.
+
+    library(magrittr)
+    library(infuser)
+
+    "Hello {{var1}}!" %>%
+      infuse(var1="world")
+
+    ## Hello world!
+
 Usage
 -----
 
@@ -171,6 +185,7 @@ Changes
 
 -   dropped `key_value_list` parameter (will be
     interpreted automatically)
+-   fixed passing of the `variable_identifier`
 
 ### v.0.2.1
 
