@@ -186,6 +186,7 @@ Changes
 -   dropped `key_value_list` parameter (will be
     interpreted automatically)
 -   fixed passing of the `variable_identifier`
+-   ability to make `variable_identifier` persistent
 
 ### v.0.2.1
 
