@@ -8,10 +8,10 @@ infuse(file_or_string, ...,
   variable_identifier = getOption("variable_identifier"),
   default_char = "|", collapse_char = ",",
   transform_function = function(value) return(value),
-  verbose = getOption("verbose"))
+  verbose = getOption("verbose"), simple_character = FALSE)
 }
 \arguments{
-\item{file_or_string}{the template file or a string containing the template}
+\item{file_or_string}{the template file or a character string containing the template}
 
 \item{...}{different keys with related values, used to fill in the template (if first passed item is a list/environment the contents of this will be processed instead)}
 
@@ -24,6 +24,8 @@ infuse(file_or_string, ...,
 \item{transform_function}{a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.}
 
 \item{verbose}{verbosity level}
+
+\item{simple_character}{if \code{TRUE} returns only a character vector, else adds the \code{infuser} class to the returned object.}
 }
 \description{
 For more info and usage examples see the README on the \href{https://github.com/Bart6114/infuser}{\code{infuser} github page}.

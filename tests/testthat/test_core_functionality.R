@@ -34,31 +34,31 @@ ORDER BY TEMP_F;"
 
 
 test_that("string replacements occurs as expected",{
-  expect_equivalent(infuse(SQL_string, month=3, year=2020), SQL_string_wanted)
-  expect_equivalent(infuse(SQL_string_with_whitespaces, month=3, year=2020), SQL_string_wanted)
+  expect_equivalent(infuse(SQL_string, month=3, year=2020, simple_character=TRUE), SQL_string_wanted)
+  expect_equivalent(infuse(SQL_string_with_whitespaces, month=3, year=2020, simple_character=TRUE), SQL_string_wanted)
 })
 
 test_that("string replacements occurs as expected when providing a list instead of arguments",{
-  expect_warning(infuse(SQL_string, key_value_list=list(month=3, year=2020))) #deprecated
-  expect_equivalent(infuse(SQL_string, list(month=3, year=2020)), SQL_string_wanted)
-  expect_equivalent(infuse(SQL_string_with_whitespaces, list(month=3, year=2020)), SQL_string_wanted)
+  expect_warning(infuse(SQL_string, key_value_list=list(month=3, year=2020)), simple_character=TRUE) #deprecated
+  expect_equivalent(infuse(SQL_string, list(month=3, year=2020), simple_character=TRUE), SQL_string_wanted)
+  expect_equivalent(infuse(SQL_string_with_whitespaces, list(month=3, year=2020), simple_character=TRUE), SQL_string_wanted)
 })
 
 
 context("replacing string parameters with defaults")
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_equivalent(infuse(SQL_string_with_defaults, year=2020), SQL_string_wanted)
+  expect_equivalent(infuse(SQL_string_with_defaults, year=2020, simple_character=TRUE), SQL_string_wanted)
 })
 
 test_that("parameters with same prefix are replaced as expected",{
-  expect_equivalent(infuse("test-{{output}}-{{outputA}}", output = "do", outputA = "a"), "test-do-a")
+  expect_equivalent(infuse("test-{{output}}-{{outputA}}", output = "do", outputA = "a", simple_character=TRUE), "test-do-a")
 })
 
 context("replacing parameters in template file")
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_equivalent(infuse(system.file("extdata", "sql1.sql", package = "infuser"), year=2020), SQL_string_wanted)
+  expect_equivalent(infuse(system.file("extdata", "sql1.sql", package = "infuser"), year=2020, simple_character=TRUE), SQL_string_wanted)
 })
 
 ###########################################
@@ -82,7 +82,7 @@ ORDER BY TEMP_F;"
 
 
 test_that("string replacements occurs as expected with defaults in place",{
-  expect_equivalent(infuse(SQL_string, year=2020), SQL_string_wanted)
+  expect_equivalent(infuse(SQL_string, year=2020, simple_character=TRUE), SQL_string_wanted)
 })
 
 ###########################################
@@ -94,12 +94,12 @@ should_be <- "hello 1,2,3"
 should_be2 <- "hello 1|2|3"
 
 test_that("infusing of vector with default ',' works",{
-  expect_equivalent(infuse(template, var1 = to_infuse), should_be)
+  expect_equivalent(infuse(template, var1 = to_infuse, simple_character=TRUE), should_be)
 })
 
 
 test_that("infusing of vector with specified char works",{
-  expect_equivalent(infuse(template, var1 = to_infuse, collapse_char = "|"), should_be2)
+  expect_equivalent(infuse(template, var1 = to_infuse, collapse_char = "|", simple_character=TRUE), should_be2)
 })
 
 
@@ -121,7 +121,7 @@ my_transform_function<-function(v){
 BOBBY_wanted <- "INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')"
 
 test_that("the custom transform function works",{
-  expect_equivalent(infuse(sql, name = name, transform_function = my_transform_function), BOBBY_wanted)
+  expect_equivalent(infuse(sql, name = name, transform_function = my_transform_function, simple_character=TRUE), BOBBY_wanted)
 })
 
 
@@ -130,12 +130,12 @@ context("variable identifiers")
 
 test_that("variable identifiers are correctly used",{
   expect_equivalent(
-    infuse("${test}", variable_identifier = c("\\${", "}"), test = "123"), "123")
+    infuse("${test}", variable_identifier = c("\\${", "}"), test = "123", simple_character=TRUE), "123")
 })
 
 
 test_that("variable identifiers are correctly used when set as an option",{
   options(variable_identifier = c("\\${", "}"))
   expect_equivalent(
-    infuse("${test}", test = "123"), "123")
+    infuse("${test}", test = "123", simple_character=TRUE), "123")
 })

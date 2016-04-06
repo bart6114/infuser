@@ -161,6 +161,9 @@ Simply create a new issue at this GitHub repository.
 
 ## Changes
 
+### v.0.2.3
+- fixed testing to adhere to new `testthat` standards
+
 ### v.0.2.2
 - dropped `key_value_list` parameter (will be interpreted automatically)
 - fixed passing of the `variable_identifier`

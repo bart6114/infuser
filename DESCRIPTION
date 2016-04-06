@@ -1,8 +1,8 @@
 Package: infuser
 Type: Package
 Title: A Very Basic Templating Engine
-Version: 0.2.2
-Date: 2016-01-06
+Version: 0.2.3
+Date: 2016-04-06
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
 Description: Replace parameters in strings and/or text files with specified
