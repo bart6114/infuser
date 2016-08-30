@@ -35,6 +35,9 @@ infuse <- function(file_or_string, ..., variable_identifier = getOption("variabl
 
   params_supplied <- list(...)
 
+  ## no params supplied, return unaltered template
+  if(length(params_supplied)==0) return(template)
+
   ## if a list or environment is passed as the first argument, only process this
   if("key_value_list" %in% names(params_supplied)) warning("specification of key_value_list no longer required; simply pass the list/environment as the first parameter")
 

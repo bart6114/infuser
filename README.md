@@ -181,12 +181,22 @@ Simply create a new issue at this GitHub repository.
 Changes
 -------
 
+### v.0.2.4
+-   allows passing of empty parameter lists
+
+### v.0.2.3
+-   alligned with new `testthat` specs
+
 ### v.0.2.2
 
 -   dropped `key_value_list` parameter (will be
     interpreted automatically)
 -   fixed passing of the `variable_identifier`
 -   ability to make `variable_identifier` persistent
+
+### v.0.2.3
+
+-   added support for empty param list
 
 ### v.0.2.1
 

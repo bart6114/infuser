@@ -1,8 +1,8 @@
 Package: infuser
 Type: Package
 Title: A Very Basic Templating Engine
-Version: 0.2.3
-Date: 2016-04-06
+Version: 0.2.4
+Date: 2016-08-30
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
 Description: Replace parameters in strings and/or text files with specified
@@ -10,7 +10,12 @@ Description: Replace parameters in strings and/or text files with specified
 License: MIT + file LICENSE
 LazyData: TRUE
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown,
+    dplyr,
+    magrittr
 URL: https://github.com/bart6114/infuser/
 BugReports: https://github.com/bart6114/infuser/issues
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

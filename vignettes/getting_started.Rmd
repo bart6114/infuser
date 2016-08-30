@@ -150,7 +150,7 @@ my_transform_function<-function(v){
 infuse(sql, name = name, transform_function = my_transform_function)
 ```
 
-Of course you can also use functions from other packages. Specifically for SQL I advise you to take a look at the ```dplyr::build_sql``` function.
+Of course you can also use functions from other packages. Specifically for SQL I advise you to take a look at the `dplyr::build_sql` function.
 
 
 ```{r}

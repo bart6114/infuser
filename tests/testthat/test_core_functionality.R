@@ -139,3 +139,7 @@ test_that("variable identifiers are correctly used when set as an option",{
   expect_equivalent(
     infuse("${test}", test = "123", simple_character=TRUE), "123")
 })
+
+test_that("empty param list is accepted",{
+  expect_equivalent(infuse(sql), sql)
+})
