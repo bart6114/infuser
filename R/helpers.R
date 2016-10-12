@@ -10,13 +10,12 @@ trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 read_template<-function(file_or_string){
   # check if input is file
   # else asume it is a string
-  if(is.character(file_or_string) && file.exists(file_or_string)){
-    template <-
-      paste0(readLines(file_or_string),collapse= "\n")
-  } else if(is.character(file_or_string) && nchar(file_or_string > 0)){
+  if(file.exists(file_or_string)){
+    template <- paste0(readLines(file_or_string),collapse= "\n")
+  } else if(nchar(file_or_string) > 0){
     template <- file_or_string
   } else {
-    stop("Input is neither an existing for nor a character string")
+    stop("Input is neither an existing file nor a character string")
   }
 
   template

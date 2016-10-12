@@ -161,7 +161,10 @@ Simply create a new issue at this GitHub repository.
 
 ## Changes
 
-### v.0.2.3
+## v.0.2.41
+- fixed bug/typo related to #10
+
+### v.0.2.4
 - fixed testing to adhere to new `testthat` standards
 
 ### v.0.2.2

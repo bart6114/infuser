@@ -55,7 +55,9 @@ following.
     variables_requested(my_sql, verbose = TRUE)
 
     ## Variables requested by template:
+
     ## >> year
+
     ## >> month (default = 3)
 
 To fill in the template simply provide the requested parameters.
@@ -97,14 +99,16 @@ text file can be found in the package as follows:
 
     example_file
 
-    ## [1] "C:/R/libs/infuser/extdata/sql1.sql"
+    ## [1] "/Library/Frameworks/R.framework/Versions/3.2/Resources/library/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 
     variables_requested(example_file, verbose = TRUE)
 
     ## Variables requested by template:
+
     ## >> month (default = 3)
+
     ## >> year
 
 And provide their values.
@@ -181,11 +185,14 @@ Simply create a new issue at this GitHub repository.
 Changes
 -------
 
-### v.0.2.4
--   allows passing of empty parameter lists
+v.0.2.41
+--------
 
-### v.0.2.3
--   alligned with new `testthat` specs
+-   fixed bug/typo related to \#10
+
+### v.0.2.4
+
+-   fixed testing to adhere to new `testthat` standards
 
 ### v.0.2.2
 
@@ -193,10 +200,6 @@ Changes
     interpreted automatically)
 -   fixed passing of the `variable_identifier`
 -   ability to make `variable_identifier` persistent
-
-### v.0.2.3
-
--   added support for empty param list
 
 ### v.0.2.1
 
