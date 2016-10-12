@@ -185,8 +185,7 @@ Simply create a new issue at this GitHub repository.
 Changes
 -------
 
-v.0.2.41
---------
+### v.0.2.5
 
 -   fixed bug/typo related to \#10
 
