@@ -161,6 +161,9 @@ Simply create a new issue at this GitHub repository.
 
 ## Changes
 
+### v.0.2.6
+- set `readLines`'s `warn` parameter to `FALSE`
+
 ### v.0.2.5
 - fixed bug/typo related to #10
 

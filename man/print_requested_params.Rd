@@ -12,4 +12,3 @@ print_requested_params(params_requested)
 \description{
 Prints requested parameters
 }
-

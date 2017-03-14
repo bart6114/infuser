@@ -19,4 +19,3 @@ variables_requested(file_or_string, variable_identifier = c("{{", "}}"),
 \description{
 Shows which variables are requested by the template
 }
-

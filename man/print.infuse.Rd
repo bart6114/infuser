@@ -14,4 +14,3 @@
 \description{
 prints/shows the result of the \code{infuse} function using the \code{cat} function
 }
-

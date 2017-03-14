@@ -12,4 +12,3 @@ trim(x)
 \description{
 Returns string w/o leading or trailing whitespace
 }
-

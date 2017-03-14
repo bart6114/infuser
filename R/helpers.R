@@ -11,7 +11,7 @@ read_template<-function(file_or_string){
   # check if input is file
   # else asume it is a string
   if(file.exists(file_or_string)){
-    template <- paste0(readLines(file_or_string),collapse= "\n")
+    template <- paste0(readLines(file_or_string, warn = FALSE),collapse= "\n")
   } else if(nchar(file_or_string) > 0){
     template <- file_or_string
   } else {

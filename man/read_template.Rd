@@ -12,4 +12,3 @@ read_template(file_or_string)
 \description{
 Reads the template from a file or string
 }
-

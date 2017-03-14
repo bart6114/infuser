@@ -99,7 +99,7 @@ text file can be found in the package as follows:
 
     example_file
 
-    ## [1] "/Library/Frameworks/R.framework/Versions/3.2/Resources/library/infuser/extdata/sql1.sql"
+    ## [1] "/Library/Frameworks/R.framework/Versions/3.3/Resources/library/infuser/extdata/sql1.sql"
 
 Again, we can check which parameters are requested by the template.
 
@@ -184,6 +184,10 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.2.6
+
+-   set `readLines`'s `warn` parameter to `FALSE`
 
 ### v.0.2.5
 
