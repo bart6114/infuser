@@ -1,8 +1,8 @@
 Package: infuser
 Type: Package
 Title: A Very Basic Templating Engine
-Version: 0.2.6
-Date: 2017-03-14
+Version: 0.2.7
+Date: 2017-07-03
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
 Description: Replace parameters in strings and/or text files with specified
@@ -13,7 +13,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    dplyr,
+    dbplyr,
     magrittr
 URL: https://github.com/bart6114/infuser/
 BugReports: https://github.com/bart6114/infuser/issues

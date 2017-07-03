@@ -147,11 +147,11 @@ my_transform_function<-function(v){
 infuse(sql, name = name, transform_function = my_transform_function)
 ```
 
-Of course you can also use functions from other packages. Specifically for SQL I advise you to take a look at the ```dplyr::build_sql``` function.
+Of course you can also use functions from other packages. Specifically for SQL I advise you to take a look at the ```dbplyr::build_sql``` function.
 
 
 ```{r}
-infuse(sql, name = name, transform_function = dplyr::build_sql)
+infuse(sql, name = name, transform_function = dbplyr::build_sql)
 ```
 
 ## Issues / questions
@@ -160,6 +160,10 @@ Simply create a new issue at this GitHub repository.
 
 
 ## Changes
+
+### v.0.2.7
+
+- change `dpyr::build_sql` to `dbplyr::build_sql`
 
 ### v.0.2.6
 - set `readLines`'s `warn` parameter to `FALSE`

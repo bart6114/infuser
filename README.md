@@ -171,9 +171,9 @@ function.
     ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
 Of course you can also use functions from other packages. Specifically
-for SQL I advise you to take a look at the `dplyr::build_sql` function.
+for SQL I advise you to take a look at the `dbplyr::build_sql` function.
 
-    infuse(sql, name = name, transform_function = dplyr::build_sql)
+    infuse(sql, name = name, transform_function = dbplyr::build_sql)
 
     ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
@@ -184,6 +184,10 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.2.7
+
+-   change `dpyr::build_sql` to `dbplyr::build_sql`
 
 ### v.0.2.6
 
@@ -199,8 +203,8 @@ Changes
 
 ### v.0.2.2
 
--   dropped `key_value_list` parameter (will be
-    interpreted automatically)
+-   dropped `key_value_list` parameter (will be interpreted
+    automatically)
 -   fixed passing of the `variable_identifier`
 -   ability to make `variable_identifier` persistent
 

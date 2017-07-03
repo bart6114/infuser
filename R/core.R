@@ -6,7 +6,7 @@
 #' Infuse a template with values.
 #'
 #' For more info and usage examples see the README on the \href{https://github.com/Bart6114/infuser}{\code{infuser} github page}.
-#' To help prevent \href{https://xkcd.com/327/}{SQL injection attacks} (or other injection attacks), use a transformation function to escape special characters and provide it through the \code{transform_function} argument. \code{\link[dplyr]{build_sql}} is a great default escaping function for SQL templating.  For templating in other languages you will need to build/specify your own escaping function.
+#' To help prevent \href{https://xkcd.com/327/}{SQL injection attacks} (or other injection attacks), use a transformation function to escape special characters and provide it through the \code{transform_function} argument. \code{\link[dbplyr]{build_sql}} is a great default escaping function for SQL templating.  For templating in other languages you will need to build/specify your own escaping function.
 #'
 #' @param file_or_string the template file or a character string containing the template
 #' @param ... different keys with related values, used to fill in the template (if first passed item is a list/environment the contents of this will be processed instead)
