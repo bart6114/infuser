@@ -138,8 +138,29 @@ test_that("variable identifiers are correctly used when set as an option",{
   options(variable_identifier = c("\\${", "}"))
   expect_equivalent(
     infuse("${test}", test = "123", simple_character=TRUE), "123")
+  # reset to default
+  options(variable_identifier=c("{{", "}}"))
 })
 
 test_that("empty param list is accepted",{
   expect_equivalent(infuse(sql), sql)
 })
+
+###############################################
+context("stop on missing parameter in strict mode")
+
+test_that("stop on missing parameter",{
+  expect_error(
+    infuse("{{foo}}{{bar}}", foo = "123", strict = TRUE)
+  )
+
+  expect_error(
+    infuse("{{foo}}{{bar}}", bar = "456", strict = TRUE)
+  )
+
+  expect_equivalent(
+    infuse("{{foo}}{{bar}}", foo = "123", bar = "456", strict = TRUE, simple_character = TRUE), "123456"
+  )
+
+})
+

@@ -16,12 +16,14 @@
 #' @param transform_function a function through which all specified values are passed, can be used to make inputs safe(r).  dplyr::build_sql is a good default for SQL templating.
 #' @param verbose verbosity level
 #' @param simple_character if \code{TRUE} returns only a character vector, else adds the \code{infuser} class to the returned object.
+#' @param strict if \code{TRUE} stops processing when a requested parameter is not supplied, else will simply leave the parameter as-is
 #' @export
 infuse <- function(file_or_string, ..., variable_identifier = getOption("variable_identifier"),
                    default_char = "|", collapse_char = ",",
                    transform_function = function(value) return(value),
                    verbose=getOption("verbose"),
-                   simple_character = FALSE){
+                   simple_character = FALSE,
+                   strict = FALSE){
 
   template <-
     read_template(file_or_string)
@@ -84,6 +86,9 @@ infuse <- function(file_or_string, ..., variable_identifier = getOption("variabl
       if(verbose) warning(paste0("Requested parameter '", param, "' not supplied -- using default variable instead"))
     } else {
       ## don't do anything but give a warning
+      if(strict){
+        stop(paste0("Requested parameter '", param, "' not supplied"))
+      }
       warning(paste0("Requested parameter '", param, "' not supplied -- leaving template as-is"))
     }
 
