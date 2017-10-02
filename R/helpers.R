@@ -43,5 +43,5 @@ print_requested_params<-function(params_requested){
 #' @param ... further arguments passed to or from other methods.
 #' @export
 print.infuse<-function(x, ...){
-  cat(x)
+  cat(x, "\n")
 }
