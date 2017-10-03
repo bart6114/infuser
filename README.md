@@ -175,6 +175,9 @@ for SQL I advise you to take a look at the `dbplyr::build_sql` function.
 
     infuse(sql, name = name, transform_function = dbplyr::build_sql)
 
+    ## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11).
+    ## Please reinstall dplyr to avoid random crashes or undefined behavior.
+
     ## INSERT INTO Students (Name) VALUES ('Robert''); DROP TABLE Students;--')
 
 Issues / questions
@@ -184,6 +187,11 @@ Simply create a new issue at this GitHub repository.
 
 Changes
 -------
+
+### v.0.2.8
+
+-   added `strict` parameter to `infuser`, if set to `TRUE` will stop
+    processing in case of incomplete set of supplied template parameters
 
 ### v.0.2.7
 

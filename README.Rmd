@@ -161,6 +161,10 @@ Simply create a new issue at this GitHub repository.
 
 ## Changes
 
+### v.0.2.8
+
+- added `strict` parameter to `infuser`, if set to `TRUE` will stop processing in case of incomplete set of supplied template parameters
+
 ### v.0.2.7
 
 - change `dpyr::build_sql` to `dbplyr::build_sql`

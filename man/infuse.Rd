@@ -8,7 +8,8 @@ infuse(file_or_string, ...,
   variable_identifier = getOption("variable_identifier"),
   default_char = "|", collapse_char = ",",
   transform_function = function(value) return(value),
-  verbose = getOption("verbose"), simple_character = FALSE)
+  verbose = getOption("verbose"), simple_character = FALSE,
+  strict = FALSE)
 }
 \arguments{
 \item{file_or_string}{the template file or a character string containing the template}
@@ -26,6 +27,8 @@ infuse(file_or_string, ...,
 \item{verbose}{verbosity level}
 
 \item{simple_character}{if \code{TRUE} returns only a character vector, else adds the \code{infuser} class to the returned object.}
+
+\item{strict}{if \code{TRUE} stops processing when a requested parameter is not supplied, else will simply leave the parameter as-is}
 }
 \description{
 For more info and usage examples see the README on the \href{https://github.com/Bart6114/infuser}{\code{infuser} github page}.
