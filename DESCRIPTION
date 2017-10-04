@@ -5,8 +5,9 @@ Version: 0.2.8
 Date: 2017-10-03
 Author: Bart Smeets
 Maintainer: Bart Smeets <bartsmeets86@gmail.com>
-Description: Replace parameters in strings and/or text files with specified
-    values.
+Description: This light-weight templating package provides flexible and 
+    user-friendly value substitution in string templates or template files
+    (e.g. SQL files) at runtime.
 License: MIT + file LICENSE
 LazyData: TRUE
 Suggests:
